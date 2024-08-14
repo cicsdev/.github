@@ -1,6 +1,6 @@
 ![](https://raw.githubusercontent.com/cicsdev/.github/main/profile/ibm-cics-on-github-lead-banner.svg)
 
-## Welcome to CICS on GitHub
+## Welcome to CICS® on GitHub
 
 Sample code for use with IBM CICS® Transaction Server for z/OS. Visit [CICS Transaction Server for z/OS 6.x](https://www.ibm.com/docs/cics-ts/6.x) for the latest documentation.
 
