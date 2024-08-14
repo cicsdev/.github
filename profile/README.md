@@ -2,7 +2,7 @@
 
 ## Welcome to CICS on GitHub
 
-Sample code for use with IBM CICS Transaction Server for z/OS. Visit [CICS Transaction Server for z/OS 6.x](https://www.ibm.com/docs/cics-ts/6.x) for the latest documentation.
+Sample code for use with IBM CICS® Transaction Server for z/OS. Visit [CICS Transaction Server for z/OS 6.x](https://www.ibm.com/docs/cics-ts/6.x) for the latest documentation.
 
 There are lots of samples available but here are a few highlights:
 
