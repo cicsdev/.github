@@ -6,7 +6,8 @@ Sample code for use with IBM CICS® Transaction Server for z/OS. Visit [CICS Tra
 
 There are lots of samples available but here are a few highlights:
 
-- The [CICS TS banking sample application (CBSA)](https://github.com/cicsdev/cics-banking-sample-application-cbsa) 
+- The [CICS banking sample application (CBSA)](https://github.com/cicsdev/cics-banking-sample-application-cbsa)
+- The [General Insurance application (GenApp)](https://github.com/cicsdev/cics-genapp) 
 - Two collections of Java samples demonstrating how to use the
   * [JCICS API](https://github.com/cicsdev/cics-java-jcics-samples)
   * [JCICSX API](https://github.com/cicsdev/cics-java-jcicsx-samples)
