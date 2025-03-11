@@ -3,6 +3,7 @@
 # This action will scan files in the given directory with specific file extensions,
 # it adds a copyright statement if none are present or updates it if necessary if,
 # there have been changes after the current copyright statement year
+# A Pull Request will be made with any changes to merge into the PR branch
 
 name: Sample Copyright Checker
 
@@ -38,7 +39,7 @@ jobs:
 
       - name: Check Copyright
         run: |
-          DIRECTORY=".${{ inputs.directory }}"
+          DIRECTORY="${{ inputs.directory }}"
           EXTENSIONS="${{ inputs.file-extensions }}"
           BASE_COPYRIGHT="${{ inputs.base-copyright }}"
 
