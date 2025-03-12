@@ -1,8 +1,10 @@
+#!/bin/bash
+
 DIRECTORY="$1"
 FILE_EXTENSIONS="$2"
 BASE_COPYRIGHT="$3"
 
-for ext in "$FILE_EXTENSIONS"; do
+for ext in $FILE_EXTENSIONS; do
     for file in $(find . -type f -name "$ext" -path "$DIRECTORY*"); do
         echo "Processing file: $file"  
         

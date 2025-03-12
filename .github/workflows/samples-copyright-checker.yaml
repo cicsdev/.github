@@ -16,9 +16,9 @@ on:
         default: './'
         type: string
       file-extensions:
-        description: 'Comma-space separated string of file extensions to search for'
+        description: 'Space separated string of file extensions to search for'
         required: true
-        default: '*.java, *.js, *.jsp, *.cbl'
+        default: '*.java *.js *.jsp *.cbl'
         type: string  
       base-copyright:
         description: 'Copyright statement to include if none exists'
