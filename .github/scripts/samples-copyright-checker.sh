@@ -23,10 +23,10 @@ for ext in $FILE_EXTENSIONS; do
                 # Check if copyright has two years
                 if [[ "$CURRENT_COPYRIGHT" =~ ,\ [0-9]{4}$ ]]; then
                     # If there is already a second year, replace it
-                    sed -i "" "s/Copyright IBM Corp. $ORIGINAL_YEAR, [0-9]\{4\}/Copyright IBM Corp. $ORIGINAL_YEAR, $LAST_MODIFIED_YEAR/" "$file"
+                    sed -i "s/Copyright IBM Corp. $ORIGINAL_YEAR, [0-9]\{4\}/Copyright IBM Corp. $ORIGINAL_YEAR, $LAST_MODIFIED_YEAR/" "$file"
                 else
                     # If there is no second year, add it
-                    sed -i "" "s/$CURRENT_COPYRIGHT/$CURRENT_COPYRIGHT, $LAST_MODIFIED_YEAR/" "$file"
+                    sed -i "s/$CURRENT_COPYRIGHT/$CURRENT_COPYRIGHT, $LAST_MODIFIED_YEAR/" "$file"
                 fi
             fi
         fi

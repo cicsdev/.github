@@ -32,18 +32,32 @@ jobs:
     name: Check Copyright
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout the caller repository (repo calling this workflow)
         uses: actions/checkout@v4
         with:
+          repository: ${{ github.repository }}
+          ref: ${{ github.ref }}
           fetch-depth: 0
+
+      - name: Checkout the .github repository (where the script lives)
+        uses: actions/checkout@v4
+        with:
+          repository: cicsdev/.github  
+          ref: main  
+          path: script-repo   
+        
+      - name: Give execute permissions to the script
+        run: chmod +x script-repo/.github/scripts/samples-copyright-checker.sh          
 
       - name: Check Copyright
         run: |
-          ./.github/scripts/samples-copyright-checker.sh \
+          script-repo/.github/scripts/samples-copyright-checker.sh \
             "${{ inputs.directory }}" \
             "${{ inputs.file-extensions }}" \
             "${{ inputs.base-copyright }}"
 
+      - name: Remove .git folder to prevent submodule being created
+        run: rm -rf script-repo
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
