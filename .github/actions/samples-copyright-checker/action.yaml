@@ -10,6 +10,9 @@ inputs:
   base-copyright:
     description: "Copyright statement to include if none exists"
     required: true
+  token:
+    description: "GitHub token"
+    required: true
 
 runs:
   using: "composite"
@@ -26,5 +29,5 @@ runs:
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v7
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ inputs.token }}
         base: ${{ github.head_ref }}         
