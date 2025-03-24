@@ -22,3 +22,9 @@ runs:
       run: |
         chmod +x ${{ github.action_path }}/samples-copyright-checker.sh
         ${{ github.action_path }}/samples-copyright-checker.sh "${{ inputs.directory }}" "${{ inputs.file-extensions }}" "${{ inputs.base-copyright }}"
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v7
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        base: ${{ github.head_ref }}         
