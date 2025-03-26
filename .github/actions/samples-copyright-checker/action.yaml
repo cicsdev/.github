@@ -1,0 +1,30 @@
+name: "Check Copyright"
+description: "Ensures files have the correct copyright statement"
+inputs:
+  directory:
+    description: "Directory to search for copright statement"
+    required: true
+  file-extensions:
+    description: "Space separated string of file extensions to search for"
+    required: true
+  base-copyright:
+    description: "Copyright statement to include if none exists"
+    required: true
+  token:
+    description: "GitHub token"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Run Copyright Check
+      shell: bash
+      run: |
+        chmod +x ${{ github.action_path }}/samples-copyright-checker.sh
+        ${{ github.action_path }}/samples-copyright-checker.sh "${{ inputs.directory }}" "${{ inputs.file-extensions }}" "${{ inputs.base-copyright }}"
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v7
+      with:
+        token: ${{ inputs.token }}
+        base: ${{ github.head_ref }}         
