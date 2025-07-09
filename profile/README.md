@@ -14,7 +14,7 @@ There are lots of samples available but here are some highlights:
 | [JCICS API Samples](https://github.com/cicsdev/cics-java-jcics-samples) | Java samples demonstrating the JCICS API. |
 | [JCICSX API Samples](https://github.com/cicsdev/cics-java-jcicsx-samples) | Java samples using the newer JCICSX API. |
 | [Spring Boot Samples](https://github.com/search?q=topic%3Aspring-boot+org%3Acicsdev+archived%3Afalse&type=repositories) | Examples of Spring Boot apps deployed to CICS Liberty. |
-| [Liberty Samples](https://github.com/search?q=topic%3Aliberty+org%3Acicsdev+archived%3Afalse&type=repositories) | Java applications for CICS Liberty JVM server, including:<br>- [Java EE and Jakarta EE samples](https://github.com/search?q=topic%3Ajavaee+org%3Acicsdev+archived%3Afalse&type=repositories) for JMS, JDBC, JSR-352, JCA, and EJB. |
+| [Liberty (Java EE / Jakarta EE) Samples](https://github.com/search?q=topic%3Aliberty+org%3Acicsdev+archived%3Afalse&type=repositories) | Java applications for CICS Liberty JVM server, including:<br>- JMS, JDBC, JSR-352, JCA, and EJB. |
 | [CICS Explorer SDK Samples](https://github.com/search?q=topic%3Aexplorer+org%3Acicsdev+archived%3Afalse&type=repositories) | Migrated and modernised CICS Explorer SDK samples. |
 | [OSGi Samples](https://github.com/search?q=topic%3Aosgi+org%3Acicsdev+archived%3Afalse&type=repositories) | Build Java applications using OSGi in CICS. |
 | [JDBC Samples](https://github.com/search?q=topic%3Ajdbc+org%3Acicsdev+archived%3Afalse&type=repositories) | Connect CICS Java apps to DB2 databases. |
