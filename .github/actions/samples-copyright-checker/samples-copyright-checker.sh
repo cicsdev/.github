@@ -4,8 +4,10 @@ DIRECTORY="$1"
 FILE_EXTENSIONS="$2"
 BASE_COPYRIGHT="$3"
 
+CHANGED_FILES=$(git fetch origin main && git diff --name-only origin/main...HEAD)
+
 for ext in $FILE_EXTENSIONS; do
-    for file in $(find . -type f -name "$ext" -path "$DIRECTORY*"); do
+    echo "$CHANGED_FILES" | grep "$ext" | grep "^$DIRECTORY" | while read -r file; do
         echo "Processing file: $file"  
         
         LAST_MODIFIED_YEAR=$(git log --follow -1 --format="%ad" --date=format:"%Y" -- "$file")
@@ -15,7 +17,6 @@ for ext in $FILE_EXTENSIONS; do
         else
             # Extract existing copyright line
             CURRENT_COPYRIGHT=$(grep -o "Copyright IBM Corp. [0-9]\{4\}\(, [0-9]\{4\}\)\?" "$file")
-
             ORIGINAL_YEAR=$(echo "$CURRENT_COPYRIGHT" | grep -o "[0-9]\{4\}" | head -1)
         
             # Check if LAST_MODIFIED_YEAR is anywhere in current copyright
