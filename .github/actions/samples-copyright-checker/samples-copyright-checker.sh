@@ -4,15 +4,15 @@ DIRECTORY="$1"
 FILE_EXTENSIONS="$2"
 BASE_COPYRIGHT="$3"
 
-
 # Get list of files changed in the PR compared to the base branch
 CHANGED_FILES=$(git diff --name-only origin/"$GITHUB_BASE_REF"...HEAD)
 
 echo "Files changed in this PR:"
 echo "$CHANGED_FILES"
 
-for ext in $FILE_EXTENSIONS; do
-    echo "$CHANGED_FILES" | grep "$ext" | grep "^$DIRECTORY" | while read -r file; do
+for file in $CHANGED_FILES; do
+    # Filter by directory and extension
+    if [[ "$file" == $DIRECTORY* ]] && [[ "$file" == $ext ]]; then
         echo "Processing file: $file"  
         
         LAST_MODIFIED_YEAR=$(git log --follow -1 --format="%ad" --date=format:"%Y" -- "$file")
@@ -22,6 +22,7 @@ for ext in $FILE_EXTENSIONS; do
         else
             # Extract existing copyright line
             CURRENT_COPYRIGHT=$(grep -o "Copyright IBM Corp. [0-9]\{4\}\(, [0-9]\{4\}\)\?" "$file")
+
             ORIGINAL_YEAR=$(echo "$CURRENT_COPYRIGHT" | grep -o "[0-9]\{4\}" | head -1)
         
             # Check if LAST_MODIFIED_YEAR is anywhere in current copyright
