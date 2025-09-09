@@ -37,5 +37,5 @@ for file in $CHANGED_FILES; do
                 fi
             fi
         fi
-    done
+    fi
 done
