@@ -4,8 +4,6 @@ DIRECTORY="$1"
 FILE_EXTENSIONS="$2"
 BASE_COPYRIGHT="$3"
 
-# Ensure we have full git history to detect changes
-git fetch --unshallow
 
 # Get list of files changed in the PR compared to the base branch
 CHANGED_FILES=$(git diff --name-only origin/"$GITHUB_BASE_REF"...HEAD)
