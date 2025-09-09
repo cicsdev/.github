@@ -4,7 +4,14 @@ DIRECTORY="$1"
 FILE_EXTENSIONS="$2"
 BASE_COPYRIGHT="$3"
 
-CHANGED_FILES=$(git fetch origin main && git diff --name-only origin/main...HEAD)
+# Ensure we have full git history to detect changes
+git fetch origin "$GITHUB_BASE_REF" --depth=0
+
+# Get list of files changed in the PR compared to the base branch
+CHANGED_FILES=$(git diff --name-only origin/"$GITHUB_BASE_REF"...HEAD)
+
+echo "Files changed in this PR:"
+echo "$CHANGED_FILES"
 
 for ext in $FILE_EXTENSIONS; do
     echo "$CHANGED_FILES" | grep "$ext" | grep "^$DIRECTORY" | while read -r file; do
