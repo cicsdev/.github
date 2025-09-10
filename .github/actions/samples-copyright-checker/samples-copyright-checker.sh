@@ -12,10 +12,11 @@ echo "$CHANGED_FILES"
 
 for ext in $FILE_EXTENSIONS; do
     for file in $(find . -type f -name "$ext" -path "$DIRECTORY*"); do
+        # Remove ./ from start of file string
         file=${file#./}
 
+        # Process file if it has been changed in PR
         if echo "$CHANGED_FILES" | grep -qx "$file"; then
-
             echo "Processing file: $file"  
             
             LAST_MODIFIED_YEAR=$(git log --follow -1 --format="%ad" --date=format:"%Y" -- "$file")
