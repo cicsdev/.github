@@ -1,0 +1,4 @@
+name: "Push to Artifactory"
+description: "Pushes an application WAR file to Artifactory, so it can be tested"
+inputs:
+  
