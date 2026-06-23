@@ -21,5 +21,8 @@ runs:
   using: "composite"
   steps:
     - name: Download WAR artifact
-      uses: 
+      uses: actions/download-artifact@v8
+      with:
+        name: ${{ inputs.artifact-name }}
+        path: ./war-to-publish
 
