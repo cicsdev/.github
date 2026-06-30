@@ -1,17 +1,8 @@
 name: "Push to Artifactory"
 description: "Pushes an application WAR file to Artifactory, so it can be tested"
 inputs:
-  artifactory-url:
-    description: "Artifactory Base URL"
-    required: true
   artifactory-repository:
     description: "The repository to push WAR to"
-    required: true
-  artifactory-user:
-    description: "The artifactory username"
-    required: true
-  artifactory-token:
-    description: "The artifactory token"
     required: true
   artifact-name:
     description: "Name of the GitHub actions artifact"
