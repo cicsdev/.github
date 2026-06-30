@@ -4,9 +4,11 @@ inputs:
   artifactory-repository:
     description: "The repository to push WAR to"
     required: true
-  artifact-name:
+  github-artifact-name:
     description: "Name of the GitHub actions artifact"
     required: true
+  artifactory-artifact-name:
+    description: "Name of the artifact when uploaded to Artifactory"
 
 runs:
   using: "composite"
