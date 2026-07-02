@@ -9,7 +9,7 @@ There are lots of samples available but here are some highlights:
 
 | **Category**                          | **Description**                                           |
 |---------------------------------------|-----------------------------------------------------------|
-| [CICS Banking Sample Application (CBSA)](https://github.com/cicsdev/cics-banking-sample-application-cbsa) | A simple banking workload demonstrating CICS capabilities. |
+| [Bank of Z](https://github.com/IBM/Bank-of-Z) | Sample Z application showing how to work with mainframe software. Combines all the best features of CICS Banking Sample Application (CBSA) with additional IMS and MQ capabilities, plus Zowe and DBB support. |
 | [General Insurance Application (GenApp)](https://github.com/cicsdev/cics-genapp) | A model insurance application with Java and CICS integration. |
 | [JCICS API Samples](https://github.com/search?q=topic%3Ajcics+org%3Acicsdev+archived%3Afalse&type=repositories) | Java samples demonstrating the JCICS API. |
 | [JCICSX API Samples](https://github.com/search?q=topic%3Ajcicsx+org%3Acicsdev+archived%3Afalse&type=repositories) | Java samples using the newer JCICSX API. |
