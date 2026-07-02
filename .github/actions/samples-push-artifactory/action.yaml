@@ -9,6 +9,7 @@ inputs:
     required: true
   artifactory-artifact-name:
     description: "Name of the artifact when uploaded to Artifactory"
+    required: true
 
 runs:
   using: "composite"

@@ -1,0 +1,38 @@
+name: "Push to Artifactory"
+
+on:
+  workflow_call:
+    inputs:
+      artifactory-repository:
+        description: "The Artifactory repository to push the WAR to"
+        required: true
+        type: string
+      github-artifact-name:
+        description: "Name of the GitHub Actions artifact containing the WAR"
+        required: true
+        type: string
+      artifactory-artifact-name:
+        description: "Name of the artifact when uploaded to Artifactory"
+        required: true
+        type: string
+
+jobs:
+  push-to-artifactory:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download WAR artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: ${{ inputs.github-artifact-name }}
+          path: ./war-to-publish
+
+      - name: Push artifact to Artifactory
+        shell: bash
+        env:
+          AF_USER: ${{ secrets.ARTIFACTORY_USER }}
+          AF_TOKEN: ${{ secrets.ARTIFACTORY_TOKEN }}
+          AF_URL: ${{ secrets.ARTIFACTORY_URL }}
+        run: |
+          curl --fail-with-body -u "$AF_USER:$AF_TOKEN" \
+            -T ./war-to-publish/*.war \
+            "$AF_URL/${{ inputs.artifactory-repository }}/${{ inputs.artifactory-artifact-name }}"
